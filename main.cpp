@@ -8,7 +8,7 @@ public:
     ~alloc() = default;
     void* allocate(std::size_t n) { // Выделение памяти
         if (n > mem_free) {
-            buf.emplace_front(100 > n ? 100 : n); // 100.000 байт или n байт (что больше)
+            buf.emplace_front(100000 > n ? 100000 : n); // 100.000 байт или n байт (что больше)
             mem_free = buf.front().size();
             mem_offset = &buf.front().front();
         }
